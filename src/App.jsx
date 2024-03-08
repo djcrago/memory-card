@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.css';
 
 function App() {
   // function Info() {
@@ -12,10 +12,10 @@ function App() {
   //
   // const [clickedCards, setClickedCards] = useState([]);
   //
-  // scoreboard({clickedCards})
+  // scoreboard({clickedCardsLength})
   // .. const [currentScore, setCurrentScore] = useState(0)
   // .. const [bestScore, setBestScore] = useState(0)
-  // .. if (clickedCards.length === 0) {
+  // .. if (clickedCardsLength === 0) {
   // .. .. if (current score > best score) {
   // .. .. .. best score = current score
   // .. .. }
@@ -23,11 +23,13 @@ function App() {
   // .. } else {
   // .. .. current score = clickedCards.length
   // .. }
+  // .. return ()
   //
   // cards
   // .. urls = [...]
   // .. useEffect to get images using urls
   // .. cards = create cards using image, assign each one a id
+  // .. in each render first empty cards then,
   // .. random order = randomize(cards)
   // .. return (
   // .. .. <div>
@@ -41,7 +43,7 @@ function App() {
   // .. .. .. setClickedCards([])
   // .. .. }
   // .. .. if (!clickedCards.contains(e.target.id)) {
-  // .. .. .. setClickedCards(...clickedCards, e.target.id)
+  // .. .. .. setClickedCards([...clickedCards, e.target.id])
   // .. .. }
   // .. }
   // .. return (
