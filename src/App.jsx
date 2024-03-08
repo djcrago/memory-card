@@ -1,15 +1,8 @@
+import Info from './Info';
 import './styles/App.css';
 
 function App() {
-  // function Info() {
-  // .. return (
-  // .. .. <>
-  // .. .. .. <h1>Memory Game</h1>
-  // .. .. .. <p>Instructions for how to play the game.</p>
-  // .. .. </>
-  // .. )
-  // }
-  //
+  return <Info />;
   // const [clickedCards, setClickedCards] = useState([]);
   //
   // scoreboard({clickedCardsLength})
