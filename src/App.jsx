@@ -1,22 +1,28 @@
+import { useState } from 'react';
 import Info from './Info';
+import Scoreboard from './Scoreboard';
 import './styles/App.css';
 
 function App() {
-  return <Info />;
-  // const [clickedCards, setClickedCards] = useState([]);
-  //
-  // scoreboard({clickedCardsLength})
-  // .. const [currentScore, setCurrentScore] = useState(0)
-  // .. const [bestScore, setBestScore] = useState(0)
-  // .. if (clickedCardsLength === 0) {
-  // .. .. if (current score > best score) {
-  // .. .. .. best score = current score
-  // .. .. }
-  // .. .. current score = 0
-  // .. } else {
-  // .. .. current score = clickedCards.length
-  // .. }
-  // .. return ()
+  const [clickedCards, setClickedCards] = useState([]);
+
+  function handleClick() {
+    setClickedCards([...clickedCards, 'blah']);
+  }
+
+  function resetScore() {
+    setClickedCards([]);
+  }
+
+  return (
+    <>
+      <Info />
+      <Scoreboard clickedCardsLength={clickedCards.length} />
+      <button onClick={handleClick}>Click Me!</button>
+      <button onClick={resetScore}>Reset Me!</button>
+    </>
+  );
+
   //
   // cards
   // .. urls = [...]
