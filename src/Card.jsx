@@ -1,5 +1,9 @@
 import './styles/Card.css';
 
-export default function Card({ info }) {
-  return <div className="card">{info}</div>;
+export default function Card({ info, handleClick }) {
+  return (
+    <div className="card" id={info.id} onClick={handleClick}>
+      {info.value}
+    </div>
+  );
 }

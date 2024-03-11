@@ -7,11 +7,11 @@ import './styles/App.css';
 function App() {
   const [clickedCards, setClickedCards] = useState([]);
 
-  function handleClick() {
+  function checkClickedCards() {
     setClickedCards([...clickedCards, 'blah']);
   }
 
-  function resetScore() {
+  function resetClickedCards() {
     setClickedCards([]);
   }
 
@@ -19,24 +19,11 @@ function App() {
     <>
       <Info />
       <Scoreboard clickedCardsLength={clickedCards.length} />
-      <button onClick={handleClick}>Click Me!</button>
-      <button onClick={resetScore}>Reset Me!</button>
-      <Cards />
+      <button onClick={checkClickedCards}>Click Me!</button>
+      <button onClick={resetClickedCards}>Reset Me!</button>
+      <Cards clickedCards={clickedCards} setClickedCards={setClickedCards} />
     </>
   );
-
-  // card({cardInfo, clickedCards, setClickedCards})
-  // .. function handleClick(e) {
-  // .. .. if (clickedCards.contains(e.target.id)) {
-  // .. .. .. setClickedCards([])
-  // .. .. }
-  // .. .. if (!clickedCards.contains(e.target.id)) {
-  // .. .. .. setClickedCards([...clickedCards, e.target.id])
-  // .. .. }
-  // .. }
-  // .. return (
-  // .. .. <img src={cardInfo.src} id={cardInfo.id} onClick={handleClick}/>
-  // .. )
 }
 
 export default App;
