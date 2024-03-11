@@ -15,6 +15,7 @@ export default function Scoreboard({ clickedCardsLength }) {
       setCurrentScore(clickedCardsLength);
     }
   }, [currentScore, bestScore, clickedCardsLength]);
+
   return (
     <div>
       <p>Current Score: {currentScore}</p>
