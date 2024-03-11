@@ -3,20 +3,8 @@ import Card from './Card';
 import './styles/Cards.css';
 
 export default function Cards({ clickedCards, setClickedCards }) {
-  const [cards, setCards] = useState([
-    { value: 1, id: 1 },
-    { value: 2, id: 2 },
-    { value: 3, id: 3 },
-    { value: 4, id: 4 },
-    { value: 5, id: 5 },
-    { value: 6, id: 6 },
-    { value: 7, id: 7 },
-    { value: 8, id: 8 },
-    { value: 9, id: 9 },
-    { value: 10, id: 10 },
-    { value: 11, id: 11 },
-    { value: 12, id: 12 },
-  ]);
+  const [cards, setCards] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+  const [randomizedCards, setRandomizedCards] = useState(randomizeCards(cards));
 
   function randomizeCards(cardsArray) {
     const cardsCopy = [...cardsArray];
@@ -31,22 +19,23 @@ export default function Cards({ clickedCards, setClickedCards }) {
     return cardsRandomized;
   }
 
-  function handleClick(e) {
-    if (clickedCards.includes(e.target.id)) {
+  function handleClick(event) {
+    if (clickedCards.includes(event.target.id)) {
       setClickedCards([]);
     }
-    if (!clickedCards.includes(e.target.id)) {
-      setClickedCards([...clickedCards, e.target.id]);
+    if (!clickedCards.includes(event.target.id)) {
+      setClickedCards([...clickedCards, event.target.id]);
     }
-    setCards(randomizeCards(cards));
+    setRandomizedCards(randomizeCards(cards));
   }
 
   return (
     <div className="cards">
-      {cards.map((card) => {
+      {randomizedCards.map((card) => {
         return (
           <Card
             key={cards.indexOf(card)}
+            id={cards.indexOf(card)}
             info={card}
             handleClick={handleClick}
           />
