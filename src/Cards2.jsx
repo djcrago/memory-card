@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Card from './Card';
+import Card2 from './Card2';
 import './styles/Cards.css';
 
 export default function Cards2({ clickedCards, setClickedCards }) {
@@ -61,7 +61,7 @@ export default function Cards2({ clickedCards, setClickedCards }) {
     <div className="cards">
       {randomCardOrder.map((url) => {
         return (
-          <Card
+          <Card2
             key={cardUrls.indexOf(url)}
             id={cardUrls.indexOf(url)}
             url={url}
