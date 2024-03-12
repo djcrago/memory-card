@@ -1,0 +1,10 @@
+.scoreboard {
+  display: flex;
+  gap: 3vw;
+}
+
+.scoreboard > p {
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 8px;
+}

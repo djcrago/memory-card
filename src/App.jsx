@@ -9,8 +9,10 @@ function App() {
 
   return (
     <>
-      <Info />
-      <Scoreboard clickedCardsLength={clickedCards.length} />
+      <div className="top">
+        <Info />
+        <Scoreboard clickedCardsLength={clickedCards.length} />
+      </div>
       <Cards clickedCards={clickedCards} setClickedCards={setClickedCards} />
     </>
   );

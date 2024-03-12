@@ -17,7 +17,7 @@ export default function Scoreboard({ clickedCardsLength }) {
   }, [currentScore, bestScore, clickedCardsLength]);
 
   return (
-    <div>
+    <div className="scoreboard">
       <p>Current Score: {currentScore}</p>
       <p>Best Score: {bestScore}</p>
     </div>
