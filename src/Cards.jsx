@@ -48,12 +48,7 @@ export default function Cards({ clickedCards, setClickedCards }) {
     <div className="cards">
       {randomCardOrder.map((randomIndex) => {
         return (
-          <Card
-            key={randomIndex}
-            id={randomIndex}
-            info={randomIndex}
-            handleClick={handleClick}
-          />
+          <Card key={randomIndex} id={randomIndex} handleClick={handleClick} />
         );
       })}
     </div>

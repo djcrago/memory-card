@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './styles/Card.css';
 
-export default function Card({ info, handleClick, id }) {
+export default function Card({ id, handleClick }) {
   const [src, setSrc] = useState('');
 
   useEffect(() => {
@@ -29,7 +29,6 @@ export default function Card({ info, handleClick, id }) {
   return (
     <div className="card" id={id} onClick={handleClick}>
       <img className="card-image" src={src} id={id} />
-      <p id={id}>{info}</p>
     </div>
   );
 }
