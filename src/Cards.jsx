@@ -8,7 +8,6 @@ export default function Cards({ clickedCards, setClickedCards }) {
 
   function randomizeCards(cardsArray) {
     const cardsCopy = [...cardsArray];
-
     const cardsRandomized = [];
 
     do {
@@ -20,13 +19,14 @@ export default function Cards({ clickedCards, setClickedCards }) {
   }
 
   function handleClick(event) {
+    setRandomizedCards(randomizeCards(cards));
+
     if (clickedCards.includes(event.target.id)) {
       setClickedCards([]);
     }
     if (!clickedCards.includes(event.target.id)) {
       setClickedCards([...clickedCards, event.target.id]);
     }
-    setRandomizedCards(randomizeCards(cards));
   }
 
   return (
