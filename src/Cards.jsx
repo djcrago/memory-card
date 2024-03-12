@@ -1,25 +1,40 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from './Card';
 import './styles/Cards.css';
 
 export default function Cards({ clickedCards, setClickedCards }) {
-  const [cards, setCards] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
-  const [randomizedCards, setRandomizedCards] = useState(randomizeCards(cards));
+  const [cardIds, setCardIds] = useState([]);
+  const [randomCardOrder, setRandomCardOrder] = useState([]);
 
-  function randomizeCards(cardsArray) {
-    const cardsCopy = [...cardsArray];
-    const cardsRandomized = [];
+  useEffect(() => {
+    const randomIds = [];
+
+    for (let i = 0; i < 12; i += 1) {
+      let randomId = Math.floor(Math.random() * 100);
+      while (randomIds.includes(randomId)) {
+        randomId = Math.floor(Math.random() * 100);
+      }
+      randomIds.push(randomId);
+    }
+
+    setCardIds(randomIds);
+    setRandomCardOrder(randomizeCards(randomIds));
+  }, []);
+
+  function randomizeCards(cardIdsArray) {
+    const cardIdsArrayCopy = [...cardIdsArray];
+    const randomIdOrder = [];
 
     do {
-      const randomIndex = Math.floor(Math.random() * cardsCopy.length);
-      cardsRandomized.push(cardsCopy.splice(randomIndex, 1)[0]);
-    } while (cardsCopy.length > 0);
+      const randomCardId = Math.floor(Math.random() * cardIdsArrayCopy.length);
+      randomIdOrder.push(cardIdsArrayCopy.splice(randomCardId, 1)[0]);
+    } while (cardIdsArrayCopy.length > 0);
 
-    return cardsRandomized;
+    return randomIdOrder;
   }
 
   function handleClick(event) {
-    setRandomizedCards(randomizeCards(cards));
+    setRandomCardOrder(randomizeCards(cardIds));
 
     if (clickedCards.includes(event.target.id)) {
       setClickedCards([]);
@@ -31,12 +46,12 @@ export default function Cards({ clickedCards, setClickedCards }) {
 
   return (
     <div className="cards">
-      {randomizedCards.map((card) => {
+      {randomCardOrder.map((randomIndex) => {
         return (
           <Card
-            key={cards.indexOf(card)}
-            id={cards.indexOf(card)}
-            info={card}
+            key={randomIndex}
+            id={randomIndex}
+            info={randomIndex}
             handleClick={handleClick}
           />
         );
