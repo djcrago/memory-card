@@ -1,6 +1,9 @@
 {
   "name": "memory-card",
   "private": true,
+  "author": "Dexter Crago",
+  "description": "This repository houses a memory card game React website.",
+  "license": "ISC",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
